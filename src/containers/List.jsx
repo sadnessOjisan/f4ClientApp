@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/employee";
 import { actions as listActions } from "../redux/modules/list";
+
 import Item from "../components/EmployeeItem";
 import ItemHeader from "../components/EmployeeHeader";
 import SideBar from "../components/SideBar";
@@ -29,8 +30,7 @@ class List extends React.Component {
       selectedModalName
     } = this.props;
     return (
-      <Wrapper>
-        <SideBar />
+      <React.Fragment>
         <Container>
           <TitleRow>
             <Title>{selectedRoute}</Title>
@@ -61,7 +61,7 @@ class List extends React.Component {
             <QRShow name={selectedModalName} />
           </Modal>
         )}
-      </Wrapper>
+      </React.Fragment>
     );
   }
 }

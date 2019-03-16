@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { withRouter } from "react-router";
 import COLOR from "../constatns/color";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/sideBar";
@@ -15,33 +16,60 @@ const SideBar = props => {
       </Logo>
       <Line />
       <ItemText
-        onClick={() => selectItem("社員一覧")}
+        onClick={() => {
+          selectItem("社員一覧");
+          props.history.push("/");
+        }}
         isSlected={selectedRoute === "社員一覧"}
       >
         社員一覧
       </ItemText>
       <ItemText
-        onClick={() => selectItem("ダッシュボード")}
+        onClick={() => {
+          selectItem("ダッシュボード");
+          props.history.push("dashboard");
+        }}
         isSlected={selectedRoute === "ダッシュボード"}
       >
         ダッシュボード
       </ItemText>
       <ItemText
-        onClick={() => selectItem("設定")}
+        onClick={() => {
+          selectItem("設定");
+          props.history.push("setting");
+        }}
         isSlected={selectedRoute === "設定"}
       >
         設定
       </ItemText>
       <ItemText
-        onClick={() => selectItem("ログアウト")}
+        onClick={() => {
+          selectItem("ログアウト");
+        }}
         isSlected={selectedRoute === "ログアウト"}
       >
         ログアウト
       </ItemText>
       <GroupB>
         <ItemText>F4 Tip とは？</ItemText>
-        <ItemText>利用規約</ItemText>
-        <ItemText>プライバシーポリシー</ItemText>
+        <ItemText
+          onClick={() => {
+            selectItem("利用規約");
+            props.history.push("terms");
+          }}
+          isSlected={selectedRoute === "利用規約"}
+        >
+          利用規約
+        </ItemText>
+        <ItemText
+          onClick={() => {
+            selectItem("プライバシーポリシー");
+            props.history.push("policy");
+          }}
+          isSlected={selectedRoute === "プライバシーポリシー"}
+        >
+          プライバシーポリシー
+        </ItemText>
       </GroupB>
     </Wrapper>
   );
@@ -93,4 +121,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SideBar);
+)(withRouter(SideBar));
