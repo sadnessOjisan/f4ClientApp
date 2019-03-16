@@ -4,13 +4,8 @@ import { connect } from "react-redux";
 import COLOR from "../constatns/color";
 import Button from "../components/Button";
 import Bell from "../assets/Bell.png";
-import {
-  VictoryChart,
-  VictoryZoomContainer,
-  VictoryLine,
-  VictoryAxis,
-  VictoryBrushContainer
-} from "victory";
+import Sales from "../components/SalesRate";
+import Lador from "../components/Lador";
 
 class DashBoard extends React.Component {
   constructor() {
@@ -38,70 +33,16 @@ class DashBoard extends React.Component {
           </SideMenu>
         </TitleRow>
         <Wrapper className={className}>
-          <div>
-            <VictoryChart
-              width={600}
-              height={470}
-              scale={{ x: "time" }}
-              containerComponent={
-                <VictoryZoomContainer
-                  zoomDimension="x"
-                  zoomDomain={this.state.zoomDomain}
-                  onZoomDomainChange={this.handleZoom.bind(this)}
-                />
-              }
-            >
-              <VictoryLine
-                style={{
-                  data: { stroke: "tomato" }
-                }}
-                data={[
-                  { a: new Date(1982, 1, 1), b: 125 },
-                  { a: new Date(1987, 1, 1), b: 257 },
-                  { a: new Date(1993, 1, 1), b: 345 },
-                  { a: new Date(1997, 1, 1), b: 515 },
-                  { a: new Date(2001, 1, 1), b: 132 },
-                  { a: new Date(2005, 1, 1), b: 305 },
-                  { a: new Date(2011, 1, 1), b: 270 },
-                  { a: new Date(2015, 1, 1), b: 470 }
-                ]}
-                x="a"
-                y="b"
-              />
-            </VictoryChart>
-            <VictoryChart
-              padding={{ top: 0, left: 50, right: 50, bottom: 30 }}
-              width={600}
-              height={100}
-              scale={{ x: "time" }}
-              containerComponent={
-                <VictoryBrushContainer
-                  brushDimension="x"
-                  brushDomain={this.state.zoomDomain}
-                  onBrushDomainChange={this.handleZoom.bind(this)}
-                />
-              }
-            >
-              <VictoryAxis tickFormat={x => new Date(x).getFullYear()} />
-              <VictoryLine
-                style={{
-                  data: { stroke: "tomato" }
-                }}
-                data={[
-                  { key: new Date(1982, 1, 1), b: 125 },
-                  { key: new Date(1987, 1, 1), b: 257 },
-                  { key: new Date(1993, 1, 1), b: 345 },
-                  { key: new Date(1997, 1, 1), b: 515 },
-                  { key: new Date(2001, 1, 1), b: 132 },
-                  { key: new Date(2005, 1, 1), b: 305 },
-                  { key: new Date(2011, 1, 1), b: 270 },
-                  { key: new Date(2015, 1, 1), b: 470 }
-                ]}
-                x="key"
-                y="b"
-              />
-            </VictoryChart>
-          </div>
+          <Rowr>
+            <Sales type="売上達成率" max={100} />
+            <Sales type="エンゲージメント" max={40} />
+            <Sales type="返答率" max={4} />
+          </Rowr>
+          <Rowr>
+            <Sales type="売上達成率" max={100} />
+            <Sales type="エンゲージメント" max={40} />
+            <Sales type="返答率" max={4} />
+          </Rowr>
         </Wrapper>
       </Container>
     );
@@ -119,12 +60,18 @@ const Row = styled.div`
   flex-direction: column;
 `;
 
+const Rowr = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+`;
+
 const Wrapper = styled.div`
   width: 100%;
-  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const NotifyBox = styled.div`
