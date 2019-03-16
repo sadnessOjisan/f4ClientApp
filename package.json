@@ -22,9 +22,30 @@
     "@babel/core": "^7.3.4",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "eslint": "^5.15.2",
     "flow-bin": "^0.95.1",
+    "flow-typed": "^2.5.1",
     "html-webpack-plugin": "^3.2.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "build:local": "BUILD_MODE='development' REACT_APP_ENV=local webpack",
+    "build:dev": "BUILD_MODE='development' REACT_APP_ENV=development webpack",
+    "build:stg": "BUILD_MODE='production' REACT_APP_ENV='staging' webpack",
+    "build:prd": "BUILD_MODE='production' REACT_APP_ENV='production' webpack",
+    "start:local": "BUILD_MODE='development' REACT_APP_ENV=local webpack-dev-server",
+    "start:dev": "BUILD_MODE='development' REACT_APP_ENV=development webpack-dev-server",
+    "start:stg": "BUILD_MODE='production' REACT_APP_ENV='staging' webpack-dev-server",
+    "start:prd": "BUILD_MODE='production' REACT_APP_ENV='production' webpack-dev-server",
+    "format": "prettier --write './src/**/*.{js,jsx}' --parser flow",
+    "lint": "eslint --fix 'src/**/*.js'",
+    "flow-typed": "flow-typed",
+    "flow:check": "flow",
+    "test": "jest",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "precommit": "lint-staged"
   }
 }
