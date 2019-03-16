@@ -8,9 +8,9 @@ type Props = {
 };
 
 const Item = (props: Props) => {
-  const { item, className } = props;
+  const { item, className, onClick } = props;
   return (
-    <Wrapper className={className}>
+    <Wrapper className={className} onClick={onClick}>
       <ImageLayout>
         <SImage
           src={
@@ -79,6 +79,8 @@ const QR = styled.img`
 
 const Edit = styled.p`
   color: ${COLOR.peachPink};
+  display: flex;
+  align-items: center;
 `;
 
 const SetLayout = styled.div`

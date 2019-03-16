@@ -3,29 +3,15 @@ import { type Dispatch } from "redux";
 import styled from "styled-components";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/employee";
+import { actions as listActions } from "../redux/modules/list";
 import Item from "../components/EmployeeItem";
 import ItemHeader from "../components/EmployeeHeader";
 import SideBar from "../components/SideBar";
 import COLOR from "../constatns/color";
 import Button from "../components/Button";
 import Bell from "../assets/Bell.png";
-
-type MapStateToProps = {|
-  +employeeIsLoading: boolean,
-  +employeeIsLoaded: boolean,
-  +data: TCards | null,
-  +error: TError | null
-|};
-
-type MapDispatchToProps = {|
-  +startFetchData: typeof actions.startFetchData,
-  +startPostValue: typeof messageActions.startPostValue
-|};
-
-type Props = {|
-  ...MapStateToProps,
-  ...MapDispatchToProps
-|};
+import QRShow from "../components/QRShow";
+import Modal from "../components/ModalWrapper";
 
 class List extends React.Component {
   componentDidMount() {
@@ -34,7 +20,14 @@ class List extends React.Component {
   }
 
   render() {
-    const { isLoading, data, selectedRoute } = this.props;
+    const {
+      isLoading,
+      data,
+      selectedRoute,
+      openModal,
+      closeModal,
+      selectedModalName
+    } = this.props;
     return (
       <Wrapper>
         <SideBar />
@@ -42,7 +35,7 @@ class List extends React.Component {
           <TitleRow>
             <Title>{selectedRoute}</Title>
             <SideMenu>
-              <Button />
+              <Button>+ 社員を追加する</Button>
               <NotifyBox>
                 <SImg src={Bell} />
                 <NoticeText>通知</NoticeText>
@@ -57,12 +50,17 @@ class List extends React.Component {
               <ItemHeader />
               <Row>
                 {data.map(d => (
-                  <SItem item={d} />
+                  <SItem item={d} onClick={() => openModal(d.name)} />
                 ))}
               </Row>
             </React.Fragment>
           )}
         </Container>
+        {selectedModalName && (
+          <Modal onClose={closeModal}>
+            <QRShow name={selectedModalName} />
+          </Modal>
+        )}
       </Wrapper>
     );
   }
@@ -144,16 +142,19 @@ const NoticeText = styled.p`
   justify-content: flex-end;
 `;
 
-const mapStateToProps = (state: Store): MapStateToProps => ({
+const mapStateToProps = state => ({
   isLoading: state.employee.isLoading,
   isLoaded: state.employee.isLoaded,
   data: state.employee.data,
   error: state.employee.error,
-  selectedRoute: state.sideBar.selectedRoute
+  selectedRoute: state.sideBar.selectedRoute,
+  selectedModalName: state.list.selectedModalName
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<any>) => ({
-  startFetchData: () => dispatch(actions.startFetchData())
+const mapDispatchToProps = dispatch => ({
+  startFetchData: () => dispatch(actions.startFetchData()),
+  openModal: name => dispatch(listActions.openModal(name)),
+  closeModal: () => dispatch(listActions.closeModal())
 });
 
 export default connect(
