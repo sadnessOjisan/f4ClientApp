@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import { Router } from "react-router";
 import createBrowserHistory from "history/createBrowserHistory"; // eslint-disable-line
 import { Provider } from "react-redux";
-import App from "./container/App";
+import App from "./containers/App";
 import configureStore from "./redux";
 
 const store = configureStore();

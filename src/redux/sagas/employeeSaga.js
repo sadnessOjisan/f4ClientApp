@@ -1,5 +1,5 @@
 import { call, takeEvery } from "redux-saga/effects";
-import { types, actions } from "../module/employee";
+import { types, actions } from "../modules/employee";
 import API from "../../services/emploueeAPI";
 
 function* loadSaga(action) {
