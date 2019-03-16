@@ -46,13 +46,13 @@ const SideBar = props => {
         onClick={() => {
           selectItem("ログアウト");
         }}
-        isSlected={selectedRoute === "ログアウト"}
+        isSlected={false}
       >
         ログアウト
       </ItemText>
       <GroupB>
         <ItemText>F4 Tip とは？</ItemText>
-        <ItemText
+        <SmallItemText
           onClick={() => {
             selectItem("利用規約");
             props.history.push("terms");
@@ -60,8 +60,8 @@ const SideBar = props => {
           isSlected={selectedRoute === "利用規約"}
         >
           利用規約
-        </ItemText>
-        <ItemText
+        </SmallItemText>
+        <SmallItemText
           onClick={() => {
             selectItem("プライバシーポリシー");
             props.history.push("policy");
@@ -69,7 +69,7 @@ const SideBar = props => {
           isSlected={selectedRoute === "プライバシーポリシー"}
         >
           プライバシーポリシー
-        </ItemText>
+        </SmallItemText>
       </GroupB>
     </Wrapper>
   );
@@ -105,9 +105,22 @@ const ItemText = styled.span`
   margin-top: 36px;
 `;
 
+const SmallItemText = styled.span`
+  color: ${props => (props.isSlected ? COLOR.peachPink : COLOR.warmBlack)};
+  margin-top: 36px;
+  font-family: HiraginoSans-W3;
+  font-size: 10px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+`;
+
 const GroupB = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 54px;
 `;
 
 const mapStateToProps = state => ({

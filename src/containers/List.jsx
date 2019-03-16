@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/employee";
 import { actions as listActions } from "../redux/modules/list";
-
 import Item from "../components/EmployeeItem";
 import ItemHeader from "../components/EmployeeHeader";
 import SideBar from "../components/SideBar";
