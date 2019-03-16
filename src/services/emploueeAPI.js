@@ -4,7 +4,7 @@ import { getUrl } from "../helper/util";
 const employeeAPI = {
   fetchEmployee() {
     return axios
-      .get(getUrl("employee"))
+      .get(getUrl("employees"))
       .then(response => ({
         payload: response.data
       }))

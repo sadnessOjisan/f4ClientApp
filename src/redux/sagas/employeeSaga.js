@@ -1,4 +1,4 @@
-import { call, takeEvery } from "redux-saga/effects";
+import { call, takeEvery, put } from "redux-saga/effects";
 import { types, actions } from "../modules/employee";
 import API from "../../services/emploueeAPI";
 
@@ -13,7 +13,7 @@ function* getEmployeeSaga(action) {
   }
 }
 
-export default function* aSaga() {
+export default function* emploueeSaga() {
   // $FlowFixMe
   yield takeEvery(types.START_FETCH_DATA, getEmployeeSaga);
 }

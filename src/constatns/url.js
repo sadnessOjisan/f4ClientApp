@@ -1,6 +1,6 @@
 // @flow
 import ENVS from "./env";
-
+console.log("process.env:", process.env);
 const REACT_APP_ENV = process.env.REACT_APP_ENV;
 let host;
 
