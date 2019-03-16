@@ -1,0 +1,4 @@
+{
+  "employees/:id": "/employees",
+  "employees": "/employees"
+}
