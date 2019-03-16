@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/employee";
 import Item from "../components/EmployeeItem";
+import ItemHeader from "../components/EmployeeHeader";
 import SideBar from "../components/SideBar";
 import COLOR from "../constatns/color";
 
@@ -40,11 +41,14 @@ class List extends React.Component {
           {isLoading || !data ? (
             <p>loading</p>
           ) : (
-            <Row>
-              {data.map(d => (
-                <SItem item={d} />
-              ))}
-            </Row>
+            <React.Fragment>
+              <ItemHeader />
+              <Row>
+                {data.map(d => (
+                  <SItem item={d} />
+                ))}
+              </Row>
+            </React.Fragment>
           )}
         </Container>
       </Wrapper>
@@ -53,14 +57,13 @@ class List extends React.Component {
 }
 
 const Wrapper = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
 `;
 
 const Container = styled.div`
   padding: 48px;
-  width: 100%;
+  width: calc(100% - 244px);
 `;
 
 const Row = styled.div`

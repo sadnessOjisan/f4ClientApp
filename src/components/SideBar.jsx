@@ -3,13 +3,16 @@ import styled from "styled-components";
 import COLOR from "../constatns/color";
 import { connect } from "react-redux";
 import { actions } from "../redux/modules/sideBar";
+import LOGOSVG from "../assets/logo.svg";
 
 const SideBar = props => {
   console.log(props);
   const { selectedRoute, selectItem } = props;
   return (
     <Wrapper>
-      <Logo>F4 tip</Logo>
+      <Logo>
+        <SLogo />
+      </Logo>
       <Line />
       <ItemText
         onClick={() => selectItem("社員一覧")}
@@ -45,15 +48,22 @@ const SideBar = props => {
 };
 
 const Wrapper = styled.div`
-  width: 200px;
+  width: 244px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   cursor: pointer;
 `;
 
 const Logo = styled.div`
   width: 100%;
   height: 100px;
+  padding: 24px;
+  text-align: center;
+`;
+
+const SLogo = styled(LOGOSVG)`
+  width: 80%;
 `;
 
 const Line = styled.div`

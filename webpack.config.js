@@ -27,6 +27,26 @@ module.exports = {
             loader: "babel-loader"
           }
         ]
+      },
+      {
+        test: /\.(jpg|png|gif)$/,
+        loader: ["url-loader"]
+      },
+      {
+        test: /\.css/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              url: false
+            }
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: "react-svg-loader"
       }
     ]
   },
