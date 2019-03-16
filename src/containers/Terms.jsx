@@ -4,29 +4,15 @@ import COLOR from "../constatns/color";
 
 const Button = (props: Props) => {
   const { className, children } = props;
-  return <Wrapper className={className}>{children}</Wrapper>;
+  return <Wrapper className={className}>工事中</Wrapper>;
 };
 
-const Wrapper = styled.button`
-  width: 144px;
-  height: 32px;
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: ${COLOR.peachPink};
-  color: ${COLOR.peachPink};
-  border-image-slice: 1;
-  &:focus {
-    outline: 0;
-  }
-  &:hover {
-    background-color: ${COLOR.peachPink};
-    color: ${COLOR.white};
-  }
 `;
 
 export default Button;
