@@ -10,8 +10,8 @@ const Item = props => {
       <ImageLayout>
         <SImage
           src={
-            item.image
-              ? item.image
+            item.faceImage
+              ? item.faceImage
               : "https://www.pakutaso.com/shared/img/thumb/kawamura1029IMGL4517_TP_V.jpg"
           }
         />
