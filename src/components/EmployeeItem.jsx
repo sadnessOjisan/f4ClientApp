@@ -3,11 +3,7 @@ import styled from "styled-components";
 import COLOR from "../constatns/color";
 import QRI from "../assets/QR.png";
 
-type Props = {
-  item: Object
-};
-
-const Item = (props: Props) => {
+const Item = props => {
   const { item, className, onClick } = props;
   return (
     <Wrapper className={className} onClick={onClick}>

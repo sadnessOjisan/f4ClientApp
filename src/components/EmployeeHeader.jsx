@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import COLOR from "../constatns/color";
 
-const Item = (props: Props) => {
+const Item = props => {
   const { className } = props;
   return (
     <Wrapper className={className}>

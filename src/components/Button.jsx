@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import COLOR from "../constatns/color";
 
-const Button = (props: Props) => {
+const Button = props => {
   const { className, children } = props;
   return <Wrapper className={className}>{children}</Wrapper>;
 };
