@@ -34,14 +34,14 @@ class DashBoard extends React.Component {
         </TitleRow>
         <Wrapper className={className}>
           <Rowr>
-            <Sales type="売上達成率" max={100} />
+            <Sales type="感謝指数" max={100} />
             <Sales type="エンゲージメント" max={40} />
             <Sales type="返答率" max={4} />
           </Rowr>
           <Rowr>
-            <Sales type="売上達成率" max={100} />
-            <Sales type="エンゲージメント" max={40} />
-            <Sales type="返答率" max={4} />
+            <Sales type="日別売上達成率" max={90} />
+            <Sales type="月別売上達成率" max={90} />
+            <Sales type="混雑率" max={20} />
           </Rowr>
         </Wrapper>
       </Container>
