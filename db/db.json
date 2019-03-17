@@ -1,58 +1,24 @@
 {
-  "employees": [
-    {
-      "id": 1,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 2,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 3,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 4,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 5,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 6,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 7,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 8,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    },
-    {
-      "id": 9,
-      "name": "みりんたそ",
-      "company": "ふりんじ１８",
-      "presentName": "mrn"
-    }
-  ]
+  "employees": {
+    "employees": [
+      {
+        "id": "11111111-1111-1111-1111-111111111111",
+        "name": "金美鈴",
+        "nick_name": "みりょん",
+        "faceImage": "http://i.pravatar.cc/150?img=5"
+      },
+      {
+        "id": "22222222-2222-2222-2222-222222222222",
+        "name": "泉せいや",
+        "nick_name": "seiya",
+        "faceImage": "http://i.pravatar.cc/150?img=8"
+      },
+      {
+        "id": "33333333-3333-3333-3333-333333333333",
+        "name": "井出優太",
+        "nick_name": "いでっち",
+        "faceImage": "http://i.pravatar.cc/150?img=9"
+      }
+    ]
+  }
 }
