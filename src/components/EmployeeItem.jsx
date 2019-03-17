@@ -22,7 +22,7 @@ const Item = (props: Props) => {
       </ImageLayout>
 
       <Name>{item.name}</Name>
-      <PresentName>{item.presentName}</PresentName>
+      <PresentName>{item.nick_name}</PresentName>
       <SetLayout>
         <QR src={QRI} />
         <Edit>編集</Edit>
