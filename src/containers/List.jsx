@@ -1,3 +1,5 @@
+// @flow
+
 import * as React from "react";
 import { type Dispatch } from "redux";
 import styled from "styled-components";
