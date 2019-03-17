@@ -69,7 +69,7 @@ const reducer = (state: State = initialState, action: Action) => {
         ...state,
         isLoading: false,
         isLoaded: true,
-        data: action.payload
+        data: action.payload.employees
       };
     case types.FAIL_FETCH_DATA:
       return {
