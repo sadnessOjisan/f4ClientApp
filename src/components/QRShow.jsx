@@ -4,11 +4,13 @@ import COLOR from "../constatns/color";
 import LOGOSVG from "../assets/logo.svg";
 import QR from "../assets/QR.png";
 import Button from "../components/Button";
+import QRCode from "qrcode.react";
+
 const QRShow = (props: Props) => {
-  const { className, name } = props;
+  const { className, item } = props;
   return (
     <Wrapper className={className}>
-      <Header>{name}さんのQRコード</Header>
+      <Header>{item.name}さんのQRコード</Header>
       <Body>
         <Card>
           <SLogo />
@@ -16,7 +18,10 @@ const QRShow = (props: Props) => {
             tippyは気軽に店員にチップを渡せるサービスです。お金はかかりません。QRコードを読み、メッセージを送信することで、あやみんさんにチップが送られる仕組みになっています。
             今日あなたがサービスを受けたあやみんさんにぜひ感謝のメッセージをお願いします。
           </TextBox>
-          <QRImage src={QR} />
+          <QRCode
+            value={`https://f4.netlify.com/cards/?id=${item.id}`}
+            style={{ width: "64px", height: "64px" }}
+          />
           <NickNameBox>{name}</NickNameBox>
           <MsgNameBox>
             本日はありがとうございました！ メッセージは毎日の励みになるので

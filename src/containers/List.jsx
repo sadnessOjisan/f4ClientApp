@@ -29,7 +29,8 @@ class List extends React.Component {
       selectedRoute,
       openModal,
       closeModal,
-      selectedModalName
+      selectedModalName,
+      selectedItem
     } = this.props;
     return (
       <React.Fragment>
@@ -54,7 +55,7 @@ class List extends React.Component {
               <ItemHeader />
               <Row>
                 {data.map(d => (
-                  <SItem item={d} onClick={() => openModal(d.name)} />
+                  <SItem item={d} onClick={() => openModal(d)} />
                 ))}
               </Row>
             </React.Fragment>
@@ -62,7 +63,7 @@ class List extends React.Component {
         </Container>
         {selectedModalName && (
           <Modal onClose={closeModal}>
-            <QRShow name={selectedModalName} />
+            <QRShow item={selectedItem} />
           </Modal>
         )}
       </React.Fragment>
@@ -152,6 +153,7 @@ const mapStateToProps = state => ({
   data: state.employee.data,
   error: state.employee.error,
   selectedRoute: state.sideBar.selectedRoute,
+  selectedItem: state.list.selectedItem,
   selectedModalName: state.list.selectedModalName
 });
 

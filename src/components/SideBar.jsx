@@ -81,12 +81,16 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  border-right: solid 1px #979797;
+  height: 100vh;
 `;
 
 const Logo = styled.div`
-  width: 100%;
-  height: 100px;
+  width: 60%;
+  height: 56px;
   padding: 24px;
+  margin-top: 56px;
+  margin-bottom: 56px;
   text-align: center;
 `;
 
@@ -95,26 +99,32 @@ const SLogo = styled(LOGOSVG)`
 `;
 
 const Line = styled.div`
-  border-bottom: solid 1px ${COLOR.warmBlack};
-  width: 80%;
-  height: 2px;
+  border-bottom: solid 0.5px #979797;
+  width: 70%;
+  // height: 0.1px;
+  }
 `;
 
 const ItemText = styled.span`
   color: ${props => (props.isSlected ? COLOR.peachPink : COLOR.warmBlack)};
   margin-top: 36px;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
 `;
 
 const SmallItemText = styled.span`
   color: ${props => (props.isSlected ? COLOR.peachPink : COLOR.warmBlack)};
-  margin-top: 36px;
-  font-family: HiraginoSans-W3;
   font-size: 10px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
+  margin-top: 12px;
 `;
 
 const GroupB = styled.div`

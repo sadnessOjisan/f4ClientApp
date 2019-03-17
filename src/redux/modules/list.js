@@ -9,9 +9,9 @@ export const types = {
 };
 
 export const actions = {
-  openModal: name => ({
+  openModal: item => ({
     type: types.OPEN_MODAL,
-    payload: name
+    payload: item
   }),
   closeModal: () => ({
     type: types.CLOSE_MODAL
@@ -19,13 +19,18 @@ export const actions = {
 };
 
 const initialState = {
-  selectedModalName: null
+  selectedModalName: null,
+  selectedItem: null
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case types.OPEN_MODAL:
-      return { ...state, selectedModalName: action.payload };
+      return {
+        ...state,
+        selectedModalName: action.payload.name,
+        selectedItem: action.payload
+      };
     case types.CLOSE_MODAL:
       return { ...state, selectedModalName: null };
     default:
