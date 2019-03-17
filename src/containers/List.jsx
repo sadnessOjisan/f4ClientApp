@@ -12,6 +12,7 @@ import Button from "../components/Button";
 import Bell from "../assets/Bell.png";
 import QRShow from "../components/QRShow";
 import Modal from "../components/ModalWrapper";
+import { Pulse } from "styled-spinkit";
 
 class List extends React.Component {
   componentDidMount() {
@@ -43,7 +44,9 @@ class List extends React.Component {
           </TitleRow>
 
           {isLoading || !data ? (
-            <p>loading</p>
+            <p>
+              <Pulse />
+            </p>
           ) : (
             <React.Fragment>
               <ItemHeader />
